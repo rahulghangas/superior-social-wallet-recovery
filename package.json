@@ -6,7 +6,6 @@
   "scripts": {
     "start": "npm run clean-build && webpack serve --stats-children --open --config webpack/webpack.dev.js",
     "build": "npm run clean-build && webpack --progress --stats-children --config webpack/webpack.prod.js",
-    "deploy": "aws s3 sync dist/ s3://electron-bridge --delete",
     "clean-build": "rm -rf dist",
     "clean": "npm run clean-build && rm -r node_modules"
   },
