@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 
-import Bridge from 'pages/bridge'
+import SocialRecoveryApp from 'pages/social-recovery'
 
 import styled from 'styled-components';
 import { SkeletonTheme } from 'react-loading-skeleton';
@@ -62,7 +62,7 @@ const App: React.FC = () => {
                 position="top-right"
                 transition={Slide}
             />
-						<Bridge/>
+						<SocialRecoveryApp/>
 						<Marginer/>	
 					</BodyWrapper>
 				</AppWrapper>
