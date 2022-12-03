@@ -130,7 +130,7 @@ const ChainSelector: React.FC<ChainSelectorProps> = (props) => {
 }
 
 
-const Bridge: React.FC = () => {
+const SocialRecoveryApp: React.FC = () => {
   const appTheme = useContext(ThemeContext)
   const [walletConnected, updateWalletConnected] = useState(false);
   const [mnemonic, updateMnemonic] = useState('');
@@ -316,4 +316,4 @@ const Bridge: React.FC = () => {
   )
 }
 
-export default Bridge;
+export default SocialRecoveryApp;
