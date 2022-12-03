@@ -1,0 +1,3 @@
+[submodule "recovery-circom"]
+	path = recovery-circom
+	url = git@github.com:rahulghangas/recovery-circom.git
