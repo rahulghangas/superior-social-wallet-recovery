@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "outDir": "dist",
+    "baseUrl": "./src/",
+    "paths": {
+      "components/*": ["components/*"],
+      "pages/*": ["pages/*"],
+      "constants/*": ["constants/*"],
+      "config/*": ["config/*"],
+    },
+    "lib": ["ES6", "dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "target": "es5",
+    "allowJs": true,
+    "checkJs": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": false,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "sourceMap": true,
+  },
+  "include": [
+    "babel.config.js",
+    "src/**/*",
+    "webpack/*"
+  ],
+}
