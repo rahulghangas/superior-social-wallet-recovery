@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Electron-Labs/bridge-frontend.git"
+    "url": "git+https://github.com/rahulghangas/superior-social-wallet-recovery"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Electron-Labs/bridge-frontend/issues"
+    "url": "https://github.com/rahulghangas/superior-social-wallet-recovery/issues"
   },
-  "homepage": "https://github.com/Electron-Labs/bridge-frontend#readme",
+  "homepage": "https://github.com/rahulghangas/superior-social-wallet-recovery#readme",
   "dependencies": {
     "@cosmjs/encoding": "^0.28.10",
     "@cosmjs/proto-signing": "^0.28.4",
