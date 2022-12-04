@@ -29,7 +29,7 @@ import { useAddPopup } from 'state/application/hooks'
 import { Spinner } from "../../components/Polling";
 import MnemonicInputPanel from 'components/MnemonicInputPanel'
 import Wallets from 'utils/wallet'
-import { createSharesFrom, decodeSecretAndVerify } from 'utils/src/shares'
+import { createProof, executeShareEncryption } from 'utils/shares/shares'
 import PubkeyInputPanel from 'components/PubkeyInputPanel'
 import SchemaInputPanel from 'components/SchemaInputPanel'
 
@@ -269,10 +269,58 @@ const SocialRecoveryApp: React.FC = () => {
                   <ButtonPrimary style={{ textAlign: 'center', background: 'red' }} disabled>
                     Incorrect Network
                   </ButtonPrimary>
-                ): !mnemonicError && !pubkey1Error && !pubkey2Error ? (
+                ): !mnemonicError && !pubkey1Error && !pubkey2Error && !schemaError && sourceChain.id.toString() === currentNetwork ? (
                   <ButtonPrimary disabled={false} onClick={() => {
-                      
-                    }}>
+                    setTxProcessing(true);
+                    addPopup({
+                      txn: {
+                        success: true,
+                        summary: 'Shares created succesfully'
+                      } 
+                    });
+                    executeShareEncryption(mnemonic, pubkey1, pubkey2, schema, sourceChain)
+                      .then((shares : { encryptedShares: number[][]; networkShare: Buffer; }) => {
+                        console.log("Shares created successfully");
+                        addPopup({
+                          txn: {
+                            success: true,
+                            summary: 'Shares created succesfully'
+                          } 
+                        });
+
+                        createProof(schema).then((value: {proof: any, publicSignals: number[]}) => {
+                          console.log('proof', value.proof);
+                          console.log('publicSignals', value.publicSignals);
+
+                          addPopup({
+                            txn: {
+                              success: true,
+                              summary: 'Proof created succesfully'
+                            } 
+                          });
+                        }).catch(e => {
+                          console.log("Proof creation failed");
+                          addPopup({
+                            txn: {
+                              success: false,
+                              summary: JSON.stringify(e.message),
+                            }
+                          })
+                        })
+                      })
+                      .catch(e => {
+                        console.log("Share created fasuccesfully");
+                        addPopup({
+                          txn: {
+                            success: true,
+                            summary: 'Shares created succesfully'
+                          } 
+                        });
+                      })
+                      .finally(() => {
+                        setTxProcessing(false)
+                      });
+                  }}>
                     Generate and encrypt shares
                   </ButtonPrimary>
                 ) : (

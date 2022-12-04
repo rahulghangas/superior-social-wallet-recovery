@@ -67,9 +67,7 @@
      new webpack.ProvidePlugin({
       Buffer: ['buffer', 'Buffer'],
      }),
-     new webpack.ProvidePlugin({
-      process: 'process/browser',
-     }),
+     
    ]),
    resolve: {
      // Define your folder resolve path used in import or require
@@ -82,7 +80,9 @@
       path: false,
       stream: false,
       string_decoder: false,
-     }
+      fs: false,
+     },
+     
    },
    devtool: options.devtool,
    target: 'web', // Make web variables accessible to webpack, e.g. window

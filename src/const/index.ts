@@ -10,6 +10,7 @@ export interface NetworkDetails {
 	label: string;
 	rpcUrls: string[];
 	icon: string;
+	recoveryContract: string;
 }
 
 export const ChainList: ChainId[] = [
@@ -18,6 +19,6 @@ export const ChainList: ChainId[] = [
 ];
 
 export const ChainNetworkDetails: { [chainId in ChainId]: NetworkDetails } = {
-	[ChainId.POLYGON_ZKEVM_TESTNET]: { id: ChainId.POLYGON_ZKEVM_TESTNET, label: 'Polygon ZKEVM Testnet', rpcUrls: ['https://rpc.public.zkevm-test.net'], icon: IMAGES.POLYGON_ZKEVM_LOGO },
-	[ChainId.POLYGON_MUMBAI_TESTNET]: { id: ChainId.POLYGON_MUMBAI_TESTNET, label: 'Polygon Mumbai Testnet', rpcUrls: ['https://rpc-mumbai.maticvigil.com'], icon: IMAGES.POLYGON_LOGO },
+	[ChainId.POLYGON_ZKEVM_TESTNET]: { id: ChainId.POLYGON_ZKEVM_TESTNET, label: 'Polygon ZKEVM Testnet', rpcUrls: ['https://rpc.public.zkevm-test.net'], icon: IMAGES.POLYGON_ZKEVM_LOGO, recoveryContract: '0xc546bae87e781de01b06910da3f824a07b43492a' },
+	[ChainId.POLYGON_MUMBAI_TESTNET]: { id: ChainId.POLYGON_MUMBAI_TESTNET, label: 'Polygon Mumbai Testnet', rpcUrls: ['https://rpc-mumbai.maticvigil.com'], icon: IMAGES.POLYGON_LOGO, recoveryContract: '' },
 }

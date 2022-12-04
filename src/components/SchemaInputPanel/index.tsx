@@ -92,8 +92,7 @@ export default function SchemaInputPanel({
 
   const handleInput = useCallback(
     event => {
-      const input = event.target.value
-      console.log(input);
+      const input = event.target.value;
       onChange(input, error);
       setCurrentInput(input);
     },
